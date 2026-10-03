@@ -20,7 +20,7 @@ class FileReaderNode(Node):
         print(f"[system]: Tentando ler o arquivo '{filename}'...")
 
         try:
-            with open(path, "r", encoding="utf-8") as f:
+            with open(filename, "r", encoding="utf-8") as f:
                 return f.read()
         except Exception as e:
             return f"Erro ao ler o arquivo: {e}"
