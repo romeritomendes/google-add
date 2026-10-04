@@ -5,8 +5,8 @@ from google.adk.agents.llm_agent import Agent
 logging.getLogger("LiteLLM").setLevel(logging.ERROR)
 
 # os.environ["OLLAMA_API_BASE"] = "http://localhost:11434"
-os.environ["OPENAI_API_BASE"] = "http://localhost:11434/v1"
-os.environ["OPENAI_API_KEY"] = "ollama"
+os.environ["OPENAI_API_BASE"] = "http://localhost:1234"
+# os.environ["OPENAI_API_KEY"] = "ollama"
 
 
 def get_current_time(city: str) -> dict:
@@ -15,7 +15,7 @@ def get_current_time(city: str) -> dict:
 
 
 root_agent = Agent(
-    model="openai/qwen3.8:latest",
+    model="ollama/gemma-kaggle:12b-q4",
     name="root_agent",
     description="Tells the current time in a specified city.",
     instruction="You are a helpful assistant that tells the current time in cities. Use the 'get_current_time' tool for this purpose.",
