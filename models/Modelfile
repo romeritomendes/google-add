@@ -1,0 +1,9 @@
+# Aponta para o ficheiro GGUF que você descarregou
+FROM ./kaggle/gemma-4-12b/gemma-4-12b-it-qat-q4_0.gguf
+
+# Define os parâmetros de inferência
+PARAMETER temperature 0.1
+PARAMETER num_ctx 4096
+
+# Template padrão do Gemma para o Ollama saber quando parar de falar
+TEMPLATE """<start_of_turn>user\n{{ .Prompt }}<end_of_turn>\n<start_of_turn>model\n{{ .Response }}<end_of_turn>\n"""
